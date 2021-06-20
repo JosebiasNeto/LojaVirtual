@@ -9,10 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LojaVirtual">
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".Slides"
-            android:theme="@style/Theme.Intro"
-            >
+        <activity android:name=".form.FormLogin"></activity>
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".Slides"
+            android:theme="@style/Theme.Intro">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
