@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillViewport="true">
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".form.FormCadastro"
+    android:orientation="vertical"
+    android:background="@drawable/shape_degrade">
+
+    <EditText
+        android:id="@+id/et_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/shape_edit_text"
+        android:drawableRight="@drawable/ic_email"
+        android:hint="E-mail"
+        android:inputType="textEmailAddress"
+        android:padding="15dp"
+        android:textColorHint="@color/black" />
+
+    <EditText
+        android:id="@+id/et_senha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/shape_edit_text"
+        android:drawableRight="@drawable/ic_key"
+        android:hint="Senha"
+        android:inputType="textPassword"
+        android:padding="15dp"
+        android:textColorHint="@color/black" />
+
+    <Button
+        android:id="@+id/bt_cadastrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/shape_button"
+        android:padding="15dp"
+        android:text="Cadastrar"
+        android:textColor="@color/white" />
+
+
+
+</LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
