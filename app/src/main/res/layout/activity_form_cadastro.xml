@@ -14,7 +14,8 @@
     android:layout_height="match_parent"
     tools:context=".form.FormCadastro"
     android:orientation="vertical"
-    android:background="@drawable/shape_degrade">
+    android:background="@drawable/shape_degrade"
+    android:id="@+id/layout_cadastro">
 
     <EditText
         android:id="@+id/et_email"
