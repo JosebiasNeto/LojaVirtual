@@ -2,6 +2,7 @@ package com.example.lojavirtual
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toolbar
@@ -15,8 +16,11 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
 import com.example.lojavirtual.databinding.ActivityTelaPrincipalBinding
 import com.example.lojavirtual.form.FormLogin
+import com.example.lojavirtual.fragments.CadastroProdutos
+import com.example.lojavirtual.fragments.Produtos
 import com.google.firebase.auth.FirebaseAuth
 
 class TelaPrincipal : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -31,6 +35,11 @@ class TelaPrincipal : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         setContentView(binding.root)
 
         setSupportActionBar(binding.appBarTelaPrincipal.toolbar)
+
+        val produtosFragment = Produtos()
+        val fragment = supportFragmentManager.beginTransaction()
+        fragment.replace(R.id.frame_container, produtosFragment)
+        fragment.commit()
 
 
         val drawerLayout: DrawerLayout = binding.drawerLayout
@@ -71,6 +80,25 @@ class TelaPrincipal : AppCompatActivity(), NavigationView.OnNavigationItemSelect
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        TODO("Not yet implemented")
+        val id = item.itemId
+        if(id == R.id.nav_produtos){
+
+            val produtosFragment = Produtos()
+            val fragment = supportFragmentManager.beginTransaction()
+            fragment.replace(R.id.frame_container, produtosFragment)
+            fragment.commit()
+
+        }else if (id == R.id.nav_cadastrar_produtos){
+
+            var intent = Intent(this, CadastroProdutos::class.java)
+            startActivity(intent)
+
+        }else if (id == R.id.nav_contato){
+
+        }
+
+        val drawer = binding.drawerLayout
+        drawer.closeDrawer(GravityCompat.START)
+        return true
     }
 }
