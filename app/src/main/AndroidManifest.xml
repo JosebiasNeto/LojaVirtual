@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LojaVirtual">
-        <activity android:name=".form.FormCadastro"></activity>
+        <activity
+            android:name=".TelaPrincipal"
+            android:label="@string/title_activity_tela_principal"
+            android:theme="@style/Theme.LojaVirtual.NoActionBar"></activity>
+        <activity android:name=".form.FormCadastro" />
         <activity android:name=".form.FormLogin" />
         <activity android:name=".MainActivity" />
         <activity

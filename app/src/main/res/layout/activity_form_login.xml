@@ -12,7 +12,8 @@
         android:layout_height="match_parent"
         android:background="@drawable/shape_degrade"
         android:orientation="vertical"
-        tools:context=".form.FormLogin">
+        tools:context=".form.FormLogin"
+        android:id="@+id/layout_login">
 
         <EditText
             android:id="@+id/et_email"
