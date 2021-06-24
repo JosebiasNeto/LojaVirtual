@@ -1,7 +1,9 @@
 package com.example.lojavirtual
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -12,6 +14,8 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.lojavirtual.databinding.ActivityTelaPrincipalBinding
+import com.example.lojavirtual.form.FormLogin
+import com.google.firebase.auth.FirebaseAuth
 
 class TelaPrincipal : AppCompatActivity() {
 
@@ -50,8 +54,25 @@ class TelaPrincipal : AppCompatActivity() {
         return true
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        val id = item.itemId
+        if (id == R.id.action_settings){
+            FirebaseAuth.getInstance().signOut()
+            VoltarParaFormLogin()
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_tela_principal)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    private fun VoltarParaFormLogin(){
+        var intent = Intent(this, FormLogin::class.java)
+        startActivity(intent)
+        finish()
     }
 }
