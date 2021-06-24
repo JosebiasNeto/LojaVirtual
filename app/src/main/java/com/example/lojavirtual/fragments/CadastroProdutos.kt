@@ -9,6 +9,8 @@ import android.provider.MediaStore
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.lojavirtual.R
 import com.example.lojavirtual.databinding.ActivityCadastroProdutosBinding
+import com.google.firebase.storage.FirebaseStorage
+import java.util.*
 
 
 class CadastroProdutos : AppCompatActivity() {
@@ -25,6 +27,9 @@ class CadastroProdutos : AppCompatActivity() {
         val btSelecionarFoto = binding.btSelecionarFoto
         btSelecionarFoto.setOnClickListener {
             SelecionarFotoGaleria()
+        }
+        btSelecionarFoto.setOnClickListener {
+            SalvarDadosFirebase()
         }
     }
 
@@ -47,5 +52,21 @@ class CadastroProdutos : AppCompatActivity() {
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
         startActivityForResult(intent, 0)
+    }
+
+    private fun SalvarDadosFirebase(){
+        val nomeArquivo = UUID.randomUUID().toString()
+        val referencia = FirebaseStorage.getInstance().getReference(
+            "/imagens/${nomeArquivo}")
+
+        SelecionarUri?.let {
+
+        referencia.putFile(it)
+            .addOnSuccessListener {
+                referencia.downloadUrl.addOnSuccessListener {
+
+                }
+            }
+        }
     }
 }
