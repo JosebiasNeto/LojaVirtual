@@ -46,12 +46,6 @@ class CadastroProdutos : AppCompatActivity() {
     private fun SelecionarFotoGaleria(){
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
-        val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-            result ->
-            if(result.resultCode == Activity.RESULT_OK){
-                val data: Intent? = result.data
-            }
-        }
-        resultLauncher.launch(intent)
+        startActivityForResult(intent, 0)
     }
 }
