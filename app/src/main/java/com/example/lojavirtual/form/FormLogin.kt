@@ -4,6 +4,9 @@ package com.example.lojavirtual.form
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.view.View
 import com.example.lojavirtual.R
 import com.example.lojavirtual.TelaPrincipal
 import com.example.lojavirtual.databinding.ActivityFormLoginBinding
@@ -46,6 +49,11 @@ class FormLogin : AppCompatActivity() {
         } else {
             FirebaseAuth.getInstance().signInWithEmailAndPassword(email,senha).addOnCompleteListener {
                 if (it.isSuccessful){
+                    val framelayout = binding.framelayout
+                    framelayout.visibility = View.VISIBLE
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        AbrirTelaPrincipal()
+                    }, 3000)
                     AbrirTelaPrincipal()
                 }
             }.addOnFailureListener {
