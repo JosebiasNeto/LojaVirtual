@@ -28,7 +28,8 @@ class CadastroProdutos : AppCompatActivity() {
         btSelecionarFoto.setOnClickListener {
             SelecionarFotoGaleria()
         }
-        btSelecionarFoto.setOnClickListener {
+        val btCadastrarProduto = binding.btCadastrarProduto
+        btCadastrarProduto.setOnClickListener {
             SalvarDadosFirebase()
         }
     }
