@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_marginTop="10dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginBottom="10dp"
+    android:background="@color/white"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/foto_produto"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:src="@drawable/adidas"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:scaleType="centerCrop"
+        />
+
+    <TextView
+        android:id="@+id/nome_produto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tenis Adiddas"
+        android:layout_toEndOf="@+id/foto_produto"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:maxLength="50"
+        />
+
+    <TextView
+        android:id="@+id/preco_produto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nome_produto"
+        android:layout_toEndOf="@+id/foto_produto"
+        android:text="R$ 249,00"
+        android:textColor="@color/black"
+        android:fontFamily="sans-serif-black"
+        android:textSize="18sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        />
+
+</RelativeLayout>
