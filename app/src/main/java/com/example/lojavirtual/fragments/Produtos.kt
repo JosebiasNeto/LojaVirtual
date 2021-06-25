@@ -1,5 +1,6 @@
 package com.example.lojavirtual.fragments
 
+import android.app.AlertDialog
 import android.content.ClipData
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -49,6 +50,16 @@ class Produtos : Fragment() {
         Adapter = GroupieAdapter()
         recycler_produtos.adapter = Adapter
         Adapter.setOnItemClickListener { item, view ->
+
+            val DialogView = LayoutInflater.from(context).inflate(R.layout.pagamento, null)
+            val builder = AlertDialog.Builder(context)
+                .setView(DialogView)
+                .setTitle("Formas de Pagamento")
+
+            val mAlertDialog = builder.show()
+            mAlertDialog.dismiss()
+
+
             Toast.makeText(context, "Item Clicado", Toast.LENGTH_SHORT).show()
         }
 
