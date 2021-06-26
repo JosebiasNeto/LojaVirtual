@@ -7,10 +7,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.*
 import android.widget.Adapter
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.*
 import com.example.lojavirtual.R
@@ -56,18 +54,15 @@ class Produtos : Fragment() {
                 .setView(DialogView)
                 .setTitle("Formas de Pagamento")
 
-            val mAlertDialog = builder.show()
-            mAlertDialog.dismiss()
+            RealizarPagamento()
 
-
-            Toast.makeText(context, "Item Clicado", Toast.LENGTH_SHORT).show()
         }
 
         BuscarProdutos()
     }
 
     private inner class ProdutosItem(val adProdutos: Dados) :
-        Item<GroupieViewHolder>(){
+        Item<GroupieViewHolder>() {
 
         override fun getLayout(): Int {
             return R.layout.lista_produtos
@@ -79,6 +74,22 @@ class Produtos : Fragment() {
             var fotoProduto = viewHolder.itemView.findViewById<ImageView>(R.id.foto_produto)
             Picasso.get().load(adProdutos.uid).into(fotoProduto)
         }
+    }
+
+    private fun RealizarPagamento(){
+
+        val mAlertDialog = AlertDialog.Builder(context).show()
+        mAlertDialog.findViewById<Button>(R.id.tv_pagamento).setOnClickListener {
+            mAlertDialog.dismiss()
+            val pagamento = mAlertDialog.findViewById<EditText>(R.id.et_pagamento).text.toString()
+            if (pagamento == "249,99") {
+                Toast.makeText(context, "Pagamento Concluído", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(context, "Pagamento Recusado", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+
     }
 
     private fun BuscarProdutos() {
@@ -96,7 +107,6 @@ class Produtos : Fragment() {
                 }
             }
     }
-
 
 
 }

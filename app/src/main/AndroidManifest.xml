@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LojaVirtual">
-        <activity android:name=".fragments.CadastroProdutos"></activity>
+        <activity android:name=".fragments.CadastroProdutos" />
         <activity
             android:name=".TelaPrincipal"
             android:label="@string/title_activity_tela_principal"
@@ -17,6 +17,8 @@
         <activity android:name=".form.FormCadastro" />
         <activity android:name=".form.FormLogin" />
         <activity android:name=".MainActivity" />
+
+
         <activity
             android:name=".Slides"
             android:theme="@style/Theme.Intro">
