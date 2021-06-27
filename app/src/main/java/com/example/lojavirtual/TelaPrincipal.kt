@@ -79,6 +79,20 @@ class TelaPrincipal : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         finish()
     }
 
+    private fun enviarEmail(){
+
+        val PACKAGEM_GOOGLEMAIL = "com.google.android.gm"
+        val email = Intent(Intent.ACTION_SEND)
+        email.putExtra(Intent.EXTRA_EMAIL, arrayOf("")) //Send email
+        email.putExtra(Intent.EXTRA_SUBJECT, "") //Send subject of email
+        email.putExtra(Intent.EXTRA_TEXT, "") //Define text to email
+
+        //Config app send email
+        email.type = "message/rec822"
+        email.setPackage(PACKAGEM_GOOGLEMAIL)
+        startActivity(Intent.createChooser(email, "Escolha o app de e-mail"))
+    }
+
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
         if(id == R.id.nav_produtos){
@@ -94,6 +108,8 @@ class TelaPrincipal : AppCompatActivity(), NavigationView.OnNavigationItemSelect
             startActivity(intent)
 
         }else if (id == R.id.nav_contato){
+
+            enviarEmail()
 
         }
 
