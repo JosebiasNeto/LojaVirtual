@@ -54,7 +54,7 @@ class Produtos : Fragment() {
                 .setView(DialogView)
                 .setTitle("Formas de Pagamento")
 
-            RealizarPagamento()
+            //RealizarPagamento()
 
         }
 
@@ -79,7 +79,7 @@ class Produtos : Fragment() {
     private fun RealizarPagamento(){
 
         val mAlertDialog = AlertDialog.Builder(context).show()
-        mAlertDialog.findViewById<Button>(R.id.tv_pagamento).setOnClickListener {
+        mAlertDialog.findViewById<Button>(R.id.bt_pagamento).setOnClickListener {
             mAlertDialog.dismiss()
             val pagamento = mAlertDialog.findViewById<EditText>(R.id.et_pagamento).text.toString()
             if (pagamento == "249,99") {
